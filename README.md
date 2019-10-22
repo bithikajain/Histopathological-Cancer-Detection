@@ -55,5 +55,5 @@ Just after 5 epochs training graphs to ascertain performance via accuracies and 
 ![Accuracy](https://github.com/bithikajain/pcam_kaggle/blob/master/notebooks/validation.png)
 
 The ROC plot 
-[ROC](https://github.com/bithikajain/pcam_kaggle/blob/master/notebooks/ROC_PLOT.png)
+![ROC](https://github.com/bithikajain/pcam_kaggle/blob/master/notebooks/ROC_PLOT.png)
 

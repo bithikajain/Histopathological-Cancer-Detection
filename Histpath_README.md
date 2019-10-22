@@ -2,7 +2,6 @@
 # Histopathologic Cancer Detection 
 
 
-#### -- Project Status: [Completed]
 
 ## Project Intro/Objective
 The purpose of this project is to create algorithm to identify metastatic cancer from small image patches taken from the larger digital pathology scans. 
@@ -41,11 +40,20 @@ It consists of 327.680 color images (96 x 96px) extracted from histopathologic s
 There exists 220024 images whose ground truth is known. A positive label indicates that the center 32x32px region of a patch contains at least one pixel of tumor tissue. T
 The original PCam dataset contains duplicate images due to its probabilistic sampling, however, the version presented on [Kaggle](https://www.kaggle.com/c/histopathologic-cancer-detection/data) does not contain duplicates. 
 I start by reviewing the provided input datasets, specifically ``` train.zip``` and ```train_labels.csv```. I split the "train" dataset
-into a training and validation set. 
+into a training and validation set (20% of train.zip). 
 
 Using ```matplotlib.pyplot``` and ```keras``` I load a random sample of 6 images from the thus created training set. 
 
-<img src="training_set_pos_neg_6.png.png" style="width:200px;height:450px;">
-<caption><center> <u> <font color='purple'> Figure 1 </u><font color='purple'>  : Histopathologic scans of lymph node sections </center></caption>
+![Histopathologic scans of lymph node sections](training_set_pos_neg_6.png)
 
-Next I use Keras to define the Convolutional Neural Network to be used as the convolutional base 
+
+Next I use Keras to define the model. ResNet50 is used as part of convolutional base and Classifier contains fully connected layers.  Post ResNet implementation we have stacked a regular dense neural network layer (output shape ( , 256)), followed by BatchNormalisation,  ```Relu``` Activation and then lastly a Dropout layer to prevent overfitting. 
+As the first layers of ResNet50 are pretrained on ImegeNet data and the last layers are specific to binary cell classification. The higher layers of the convolutional base which are closer to the output need to be retrained for meaningful implementation of transfer learning. The convolutional base contrains 174 layers and we retrain from the 143rd one. The per-parameter adaptive learning rate method used by is Adam Optimizer.  
+
+Just after 5 epochs training graphs to ascertain performance via accuracies and losses varied over epochs are the following 
+![Losses]()
+![Accuracy]()
+
+The ROC plot 
+![ROC]()
+

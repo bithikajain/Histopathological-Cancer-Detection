@@ -51,9 +51,9 @@ Next I use Keras to define the model. ResNet50 is used as part of convolutional 
 As the first layers of ResNet50 are pretrained on ImegeNet data and the last layers are specific to binary cell classification. The higher layers of the convolutional base which are closer to the output need to be retrained for meaningful implementation of transfer learning. The convolutional base contrains 174 layers and we retrain from the 143rd one. The per-parameter adaptive learning rate method used by is Adam Optimizer.  
 
 Just after 5 epochs training graphs to ascertain performance via accuracies and losses varied over epochs are the following 
-![Losses]('notebooks/training.png')
-![Accuracy]('notebooks/validation.png')
+![Losses]('https://github.com/bithikajain/pcam_kaggle/blob/master/notebooks/training.png')
+![Accuracy]('https://github.com/bithikajain/pcam_kaggle/blob/master/notebooks/validation.png')
 
 The ROC plot 
-![ROC]('notebooks/ROC_PLOT.png')
+![ROC]('https://github.com/bithikajain/pcam_kaggle/blob/master/notebooks/ROC_PLOT.png')
 

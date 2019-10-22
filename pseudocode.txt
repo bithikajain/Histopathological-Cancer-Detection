@@ -1,1 +1,0 @@
-Identify metastatic cancer in image patches

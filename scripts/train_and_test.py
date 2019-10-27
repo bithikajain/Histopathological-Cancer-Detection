@@ -90,23 +90,23 @@ Return the latest checkpoint index and file in user provided directory
 #               Argument Parsing
 #
 parser = argparse.ArgumentParser(description='Train CNN for input data')
-parser.add_argument('--split-fraction-validation', dest='VAL_SPLIT',
+parser.add_argument('--split-fraction-validation', dest='VAL_SPLIT', type=float,
                     default=0.2, help='validation dataset split fraction (default: 0.2)')
-parser.add_argument('--number-of-epochs', dest='NUM_EPOCHS',
+parser.add_argument('--number-of-epochs', dest='NUM_EPOCHS', type=int,
                     default=20, help='number of epochs(default:20)')
-parser.add_argument('--initial-learning-rate', dest='INIT_LR',
+parser.add_argument('--initial-learning-rate', dest='INIT_LR', type=float,
                     default=1e-3, help='initial-learning-rate (default: 1e-3)')
-parser.add_argument('--batch-size', dest='BATCH_SIZE',
+parser.add_argument('--batch-size', dest='BATCH_SIZE', type=int,
                     default=32, help='batch size (default: 32)')
-parser.add_argument('--image-height', dest='HEIGHT',
+parser.add_argument('--image-height', dest='HEIGHT', type=int,
                     default=224, help='Image height in pixels (default: 224)')
-parser.add_argument('--image-width', dest='WIDTH',
+parser.add_argument('--image-width', dest='WIDTH', type=int,
                     default=224, help='Image width in pixels (default: 224)')
-parser.add_argument('--default-image-height', dest='DEF_HEIGHT',
+parser.add_argument('--default-image-height', dest='DEF_HEIGHT', type=int,
                     default=96, help='Image height in pixels (default: 96)')
-parser.add_argument('--default-image-width', dest='DEF_WIDTH',
+parser.add_argument('--default-image-width', dest='DEF_WIDTH', type=int,
                     default=96, help='Image width in pixels (default: 96)')
-parser.add_argument('--dropout-rate', dest='DROPOUT_RATE',
+parser.add_argument('--dropout-rate', dest='DROPOUT_RATE', type=float,
                     default=0.5, help='Dropout rate (default: 0.5)')
 parser.add_argument('--resuming', action='store_true',
                     default=False, help='Resume from checkpoint (default: False)')

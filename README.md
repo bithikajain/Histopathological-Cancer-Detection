@@ -37,8 +37,7 @@ for those waiting for results. Is there a way to make fast and accurate predicti
 
 The dataset used here is a slightly modified version of the PatchCamelyon (PCam) [benchmark dataset](https://github.com/basveeling/pcam)
 It consists of 327.680 color images (96 x 96px) extracted from histopathologic scans of lymph node sections. Each image is annoted with a binary label indicating presence of metastatic tissue.. 
-There exists 220024 images whose ground truth is known. A positive label indicates that the center 32x32px region of a patch contains at least one pixel of tumor tissue. T
-The original PCam dataset contains duplicate images due to its probabilistic sampling, however, the version presented on [Kaggle](https://www.kaggle.com/c/histopathologic-cancer-detection/data) does not contain duplicates. 
+There exists 220024 images whose ground truth is known. A positive label indicates that the center 32x32px region of a patch contains at least one pixel of tumor tissue. The original PCam dataset contains duplicate images due to its probabilistic sampling, however, the version presented on [Kaggle](https://www.kaggle.com/c/histopathologic-cancer-detection/data) does not contain duplicates. 
 I start by reviewing the provided input datasets, specifically ``` train.zip``` and ```train_labels.csv```. I split the "train" dataset
 into a training and validation set (20% of train.zip). 
 

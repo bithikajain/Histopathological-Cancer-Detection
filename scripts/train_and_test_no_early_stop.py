@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # # Histopathologic Cancer Detection
-# #### Aim: Create algorithm to identify metastatic cancer from small image
+# ### Aim: Create algorithm to identify metastatic cancer from small image
 # patches taken from the larger digital pathology scans.
 # #### These images are taken from the modified version of PathCamelon (PCam)
 # benchmark dataset (duplicate entries have been removed, NB: duplicate entries
@@ -110,29 +110,26 @@ parser.add_argument('--dropout-rate', dest='DROPOUT_RATE', type=float,
                     default=0.5, help='Dropout rate (default: 0.5)')
 parser.add_argument('--resuming', action='store_true',
                     default=False, help='Resume from checkpoint (default: False)')
-parser.add_argument('--verbose', action='store_true',
-                    default=False, help='Verbose output (default: False)')
-parser.add_argument('--run-name', dest='run_name', type=str, default='',
+parser.add_argument('--run-name', dest='run_name', type=str, default='production',
                     help = 'create a subfolder with run_name' )
-parser.add_argument('--user-defined-checkpoint', dest='user_defined_checkpoint',
-                    type=str, default=False,
-                    help = 'Resume from previous checkpoint or user define one  (default: False) ' )
 parser.add_argument('--checkpoint-file-path', dest='checkpoint_file_path',type=str,
                     default='', help='Enter the checkpoint file path (default: '')')
+parser.add_argument('--verbose', action='store_true',
+                    default=False, help='Verbose output (default: False)')
 args = parser.parse_args()
 
 
 ###############################################################################
 ###############################################################################
 # Set paths that you will use in this notebook
-base_dir = os.path.join('/home/bithika/ml/Kaggle/pcam')
-base_dir = os.path.join(base_dir, args.run_name)
+base_dir = os.path.join('/home/prayush/bj/pcam')
 input_dir = os.path.join(base_dir, 'input')
+base_dir = os.path.join(base_dir, args.run_name)
 checkpoint_dir = os.path.join(base_dir, 'checkpoints')
 plot_dir = os.path.join(base_dir, 'plots')
 output_dir = os.path.join(base_dir, 'output')
-os.system("mkdir -p {} {} {} {} {}".format(base_dir,
-                                           input_dir, checkpoint_dir,
+os.system("mkdir -p {} {} {} {}".format(base_dir,
+                                           checkpoint_dir,
                                            plot_dir, output_dir))
 if args.verbose:
     print("Made required directories...")
@@ -336,7 +333,7 @@ if args.verbose:
 epoch_at_start = 1
 if args.resuming:
     # load model from last checkpoint
-    if args.user_defined_checkpoint and args.checkpoint_file_path != '':
+    if args.checkpoint_file_path != '':
         # ask user to enter chekpoint file with full path 
         checkpoint_file = args.checkpoint_file_path
     else:
